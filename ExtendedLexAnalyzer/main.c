@@ -16,8 +16,9 @@
 #include "tokenizer.h"
 #define MAX_LENGTH 1500
 #define MAX_LINE_LENGTH 100
-#define MAX_TOKENS 500
+#define MAX_TOKENS 250
 
+char tokens[MAX_TOKENS][MAX_LENGTH]; // 모든 토큰을 저장할 배열 추가
 extern bool isMallocVar;
 void printHeader(FILE* outfp, int maxLen);
 char* tokenClassifier(int state);
@@ -31,7 +32,7 @@ int main(void) {
     // 입력 받은 문자열 및 최종 상태를 저장하는 배열
     char* inputCode;
     char* tmpBuf;
-    char tokens[MAX_TOKENS][MAX_LENGTH]; // 모든 토큰을 저장할 배열 추가
+
     int* tokenStates; // 토큰의 상태를 저장할 배열
     int totalTokenCount = 0; // 전체 토큰 개수
 

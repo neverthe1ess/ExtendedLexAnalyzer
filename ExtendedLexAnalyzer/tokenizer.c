@@ -59,7 +59,7 @@ char* generalTokenizer(char* line) {
         else if (*nextCheckToken == '"') {
             nextCheckToken++;
             stringReader();
-        }
+        } 
         else {
             nextCheckToken++;
         }
@@ -129,7 +129,10 @@ void* stringReader() {
     }
     if (*nextCheckToken == '\0' || *nextCheckToken == '\n') {
         printf("비정상적인 문자열 입력입니다! 따옴표를 닫아 주세요!\n");
-        *nextCheckToken = '\0';
+        if (*nextCheckToken == '\n') {
+            *nextCheckToken = '\0';
+            nextCheckToken++;
+        }
     }
     if (*nextCheckToken == '"') {
         nextCheckToken++;
